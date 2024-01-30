@@ -1,2 +1,24 @@
-# Définir cette configuration Compose afin de lancer l'application
-# The Computer Club's Blog en production.
+version: "3"
+
+services:
+  blog:
+    build: .
+    container_name: blog_website
+    entrypoint: /app/blog/docker-entrypoint.sh
+    ports:
+      - 8000:8000
+    environment:
+      - DATABASE_URL=postgres://jordan:romain@blog_database:5432/blog
+      - ROCKET_ADDRESS=0.0.0.0
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    container_name: blog_database
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=jordan
+      - POSTGRES_PASSWORD=romain
+      - POSTGRES_DB=blog
