@@ -1,0 +1,4 @@
+makemewatch.localhost {
+	encode gzip zstd
+	reverse_proxy client:3000
+}

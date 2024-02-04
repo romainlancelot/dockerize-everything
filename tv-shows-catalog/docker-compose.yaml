@@ -1,2 +1,19 @@
-# Définir cette configuration Compose afin de lancer l'application
-# Make Me Watch en production.
+version: "3"
+
+services:
+  client:
+    build: ./client
+    container_name: "make_me_watch_client"
+
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./client/Caddyfile:/etc/caddy/Caddyfile
+
+  server:
+    build: ./server
+    container_name: "make_me_watch_server"
