@@ -6,7 +6,7 @@ services:
     container_name: "make_me_watch_client"
 
   caddy:
-    image: caddy:latest
+    image: caddy:alpine
     container_name: caddy
     ports:
       - 80:80
