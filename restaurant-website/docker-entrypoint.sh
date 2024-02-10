@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 php bin/console importmap:install
 php bin/console asset-map:compile
