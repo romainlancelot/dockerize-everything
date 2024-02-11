@@ -11,7 +11,7 @@ services:
     entrypoint: /app/grilli/docker-entrypoint.sh
 
   nginx:
-    image: nginx:latest
+    image: nginx:1.25.3-alpine3.18-slim
     container_name: grilli_nginx
     ports:
       - 80:80
