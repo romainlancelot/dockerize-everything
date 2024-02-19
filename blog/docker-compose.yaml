@@ -20,3 +20,8 @@ services:
       - POSTGRES_USER=jordan
       - POSTGRES_PASSWORD=romain
       - POSTGRES_DB=blog
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
