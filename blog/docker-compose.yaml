@@ -7,19 +7,14 @@ services:
     entrypoint: /app/blog/docker-entrypoint.sh
     ports:
       - 8000:8000
-    environment:
-      - DATABASE_URL=postgres://jordan:romain@blog_database:5432/blog
-      - ROCKET_ADDRESS=0.0.0.0
+    env_file: .env
     depends_on:
       - postgres
 
   postgres:
     image: postgres:16.1-alpine3.19
     container_name: blog_database
-    environment:
-      - POSTGRES_USER=jordan
-      - POSTGRES_PASSWORD=romain
-      - POSTGRES_DB=blog
+    env_file: .env
     restart: always
     volumes:
       - pg_data:/var/lib/postgresql/data
