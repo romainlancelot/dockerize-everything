@@ -20,6 +20,7 @@ services:
       - POSTGRES_USER=jordan
       - POSTGRES_PASSWORD=romain
       - POSTGRES_DB=blog
+    restart: always
     volumes:
       - pg_data:/var/lib/postgresql/data
 
