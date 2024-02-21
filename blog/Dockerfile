@@ -21,7 +21,7 @@ RUN cargo install --path . && \
     cp $CARGO_HOME/bin/blog . && \
     cargo install diesel_cli --no-default-features --features postgres
 
-FROM debian:bookworm-slim
+FROM busybox:1.36.1
 
 WORKDIR /app/blog
 
