@@ -6,8 +6,7 @@ services:
     container_name: grilli_website
     volumes:
       - website:/app/grilli
-    environment:
-      - APP_ENV=prod
+    env_file: .env
     entrypoint: /app/grilli/docker-entrypoint.sh
 
   nginx:
