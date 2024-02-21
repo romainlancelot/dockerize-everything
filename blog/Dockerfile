@@ -23,15 +23,9 @@ RUN cargo install --path . && \
 
 FROM debian:bookworm-slim
 
-ENV RUSTUP_HOME=/usr/local/rustup \
-    CARGO_HOME=/usr/local/cargo \
-    PATH=/usr/local/cargo/bin:$PATH
-
 WORKDIR /app/blog
 
 COPY . .
 COPY --from=builder /app/blog/blog .
 COPY --from=builder /usr/local/cargo/bin/diesel /usr/local/bin/diesel
 COPY --from=builder /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu
-COPY --from=builder /usr/local/cargo /usr/local/cargo
-COPY --from=builder /usr/local/rustup /usr/local/rustup
