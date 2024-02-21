@@ -1,9 +1,9 @@
 FROM node:20.11.0-alpine3.19
 
+ARG BUILD_DIR_PATH
+
 WORKDIR /app
-COPY . .
+COPY $BUILD_DIR_PATH .
 
 RUN npm install && \
     npm run build
-
-CMD node dist/main.js
