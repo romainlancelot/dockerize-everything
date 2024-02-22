@@ -6,7 +6,7 @@ services:
     container_name: blog_website
     entrypoint: /app/blog/docker-entrypoint.sh
     ports:
-      - 8000:8000
+      - $ROCKET_CONTAINER_PORT:$ROCKET_MAPPED_LOCAL_PORT
     env_file: .env
     depends_on:
       postgres:
